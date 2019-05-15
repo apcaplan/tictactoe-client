@@ -12,6 +12,27 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
+      <div>
+
+      <form id="register">
+        <input type="email" name="credentials[email]" placeholder="Email" />
+        <input type="password" name="credentials[password]" placeholder="Password"/>
+        <input type ="password" name="credentials[password_confirmation]" placeholder="Confirm password" />
+        <input type="submit" name="Register" />
+      </form>
+      <hr>
+
+      <form id="login">
+        <input type="email" name="credentials[email]" placeholder="Email" />
+        <input type="password" name="credentials[password]" placeholder="Password"/>
+        <input type="submit" name="Login" />
+      </form>
+      <hr>
+
+      <form id="change-password"></form>
+      <form id="logout"></form>
+      <div>
+
       <h1>Welcome to Tic Tac Toe!</h1>
       <div class="container">
         <div class="row">
@@ -29,8 +50,9 @@
           <div class="col-4 col-md-4 box" id=index8>8</div>
       </div>
     </div>
-    </body>
-      </section>
+      <form id="reset">
+        <input type="button" class="btn btn-primary btn-lg" value="New Game"></input>
+      </form>
 
     </body>
 </html>

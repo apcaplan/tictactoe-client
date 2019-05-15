@@ -17,6 +17,10 @@ body {
   border-left: none;
 }
 
+#reset {
+  padding: 30px;
+}
+
 .box {
   align-items: center;
   background-color: $board-color;
@@ -26,6 +30,10 @@ body {
   height: 80px;
   justify-content: center;
 }
+
+.btn-primary{
+  background-color: $purple;
+    }
 
 .row{
   margin: 20%;
