@@ -17,6 +17,13 @@ body {
   border-left: none;
 }
 
+#admin-pannel {
+  align-self: flex-start;
+  // display: flex;
+  flex-direction: column;
+  // justify-content: right;
+}
+
 #reset {
   padding: 30px;
 }

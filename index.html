@@ -12,42 +12,54 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <div>
 
-      <form id="register">
+      <div id="admin-pannel">
+      <h2>Register</h2>
+      <form id="sign-up">
         <input type="email" name="credentials[email]" placeholder="Email" />
         <input type="password" name="credentials[password]" placeholder="Password"/>
         <input type ="password" name="credentials[password_confirmation]" placeholder="Confirm password" />
-        <input type="submit" name="Register" />
+        <input type="submit" name="Sign up" />
       </form>
       <hr>
 
-      <form id="login">
+      <h2>Sign in</h2>
+      <form id="sign-in">
         <input type="email" name="credentials[email]" placeholder="Email" />
         <input type="password" name="credentials[password]" placeholder="Password"/>
         <input type="submit" name="Login" />
       </form>
       <hr>
 
-      <form id="change-password"></form>
-      <form id="logout"></form>
-      <div>
+      <h2>Change Password</h2>
+      <form id="change-password">
+        <input type="password" name="passwords[old]" placeholder="Current Password" />
+        <input type="password" name="passwords[new]" placeholder="New Password" />
+        <input type="submit" name="Change Password" />
+        <br/>
+      </form>
+
+      <h2>Logout</h2>
+      <form id="logout">
+        <input type="submit" name="Logout" />
+      </form>
+    </div>
 
       <h1>Welcome to Tic Tac Toe!</h1>
       <div class="container">
         <div class="row">
-          <div class="col-4 col-md-4 box" id=index0>0
+          <div class="col-4 col-md-4 box" id='0'>0
             <span class="border-top-0"></span>
             <span class="border-left-0"></span>
           </div>
-          <div class="col-4 col-md-4 box" id=index1>1</div>
-          <div class="col-4 col-md-4 box" id=index2>2</div>
-          <div class="col-4 col-md-4 box" id=index3>3</div>
-          <div class="col-4 col-md-4 box" id=index4>4</div>
-          <div class="col-4 col-md-4 box" id=index5>5</div>
-          <div class="col-4 col-md-4 box" id=index6>6</div>
-          <div class="col-4 col-md-4 box" id=index7>7</div>
-          <div class="col-4 col-md-4 box" id=index8>8</div>
+          <div class="col-4 col-md-4 box" id='1'>1</div>
+          <div class="col-4 col-md-4 box" id='2'>2</div>
+          <div class="col-4 col-md-4 box" id='3'>3</div>
+          <div class="col-4 col-md-4 box" id='4'>4</div>
+          <div class="col-4 col-md-4 box" id='5'>5</div>
+          <div class="col-4 col-md-4 box" id='6'>6</div>
+          <div class="col-4 col-md-4 box" id='7'>7</div>
+          <div class="col-4 col-md-4 box" id='8'>8</div>
       </div>
     </div>
       <form id="reset">

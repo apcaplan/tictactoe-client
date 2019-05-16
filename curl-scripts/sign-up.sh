@@ -1,13 +1,14 @@
 #!/bin/bash
 
-curl "https://wdi-library-api.herokuapp.com/sign-in" \
+curl "https://https://tic-tac-toe-wdi.herokuapp.com/sign-up" \
   --include \
   --request POST \
   --header "Content-Type: application/json" \
   --data '{
     "credentials": {
       "email": "'"${EMAIL}"'",
-      "password": "'"${PASSWORD}"'"
+      "password": "'"${PASSWORD}"'",
+      "password_confirmation": "'"${PASSWORD}"'"
     }
   }'
 
