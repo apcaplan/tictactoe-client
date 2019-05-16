@@ -58,28 +58,47 @@ const onLogoutFailure = () => {
   $('#message').removeClass()
   $('#message').addClass('failure')
 }
-
-// Game
-
-// Current player rotation
-// let currentPlayer = 'X'
 //
-// const changePlayer = function () {
-//   if (currentPlayer === 'X') {
-//     let currentPlayer = 'O'
-//     console.log("O's turn!")
-//   }
-//   let currentPlayer = 'X'
-//   console.log("X's turn!")
-// }
+// // Game
+//
+let gameBoard = ['', '', '', '', '', '', '', '', '']
+//
+let currentPlayer = 'X'
+//
 
-// On click
 $('.box').click(function () {
-  console.log (this.id)
-  console.log('check if space available')
-  console.log('if "", addMark')
-  changePlayer()
+  if (currentPlayer === 'X') {
+    if (gameBoard[this.id] === '') {
+      $(event.target).text('X')
+      console.log(this.id)
+      gameBoard[this.id] = 'X'
+      console.log(gameBoard)
+      currentPlayer = 'O'
+    } else {
+      console.log('Do not allow!')
+    }
+    // playerX()
+  } else {
+    // playerO()
+    if (gameBoard[this.id] === '') {
+      $(event.target).text('O')
+      console.log(this.id)
+      gameBoard[this.id] = 'O'
+      console.log(gameBoard)
+      currentPlayer = 'X'
+    } else {
+      console.log('Do not allow!')
+    }
+  }
 })
+//
+// // if box full
+//
+//
+//     // checkfor win
+//       //if win, end game
+//       // else
+//       // changeTurns
 
 module.exports = {
   onSignUpSuccess,

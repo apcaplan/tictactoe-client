@@ -45,18 +45,9 @@ const onLogout = event => {
     .catch(ui.onLogoutFailure)
 }
 
-// Game
-
-const markX = function (event) {
-  event.preventDefault()
-  console.log('X Clicked')
-  $(event.target).text('X')
-}
-
 module.exports = {
   onSignUp,
   onSignIn,
   onChangePw,
-  onLogout,
-  markX
+  onLogout
 }

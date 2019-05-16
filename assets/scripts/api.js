@@ -5,6 +5,7 @@ const store = require('./store')
 
 // const store = require('./store')
 
+// Registration
 const signup = formData => {
   console.log('from api signup')
   return $.ajax({
@@ -45,6 +46,8 @@ const signout = () => {
     }
   })
 }
+
+
 
 module.exports = {
   signin,

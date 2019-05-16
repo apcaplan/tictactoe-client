@@ -14,8 +14,3 @@ $(() => {
   $('#change-password').on('submit', authEvents.onChangePw)
   $('#logout').on('submit', authEvents.onLogOut)
 })
-
-// Game
-// $('.box').on('click', authEvents.playerOne)
-// console.log('authEvents is', authEvents)
-// exampleEvents.addHandlers()
