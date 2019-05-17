@@ -16,7 +16,7 @@ const signup = formData => {
 }
 
 const signin = formData => {
-  console.log('from api ')
+  console.log('from api signin')
   return $.ajax({
     url: config.apiUrl + '/sign-in',
     method: 'POST',
@@ -37,7 +37,7 @@ const changepw = formData => {
 }
 
 const signout = () => {
-  console.log('from api logout')
+  console.log('from api signout')
   return $.ajax({
     url: config.apiUrl + '/sign-out',
     method: 'DELETE',
@@ -47,11 +47,46 @@ const signout = () => {
   })
 }
 
+const newgame = () => {
+  console.log('from api newgame')
+  return $.ajax({
+    url: config.apiUrl + '/games',
+    // ${store.game.id}
+    method: 'POST',
+    game: {
+      id: 0,
+      cells: [],
+      over: false,
+      player_x: {
+        id: 1,
+        email: ''
+      },
+      player_o: null
+    },
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
 
+const updateGame = (data) => {
+  console.log('data is', data)
+  return $.ajax({
+    url: config.apiUrl + '/games/' + store.gameID,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: data
+  })
+}
 
 module.exports = {
   signin,
   signup,
   changepw,
-  signout
+  signout,
+  newgame,
+  // indexGame,
+  updateGame
 }

@@ -13,7 +13,9 @@
     </head>
     <body>
 
-      <div id="admin-pannel">
+      <div class="container" id="admin-pannel">
+        <div class="row">
+          <div class="col-md-4" >
       <h2>Register</h2>
       <form id="sign-up">
         <input type="email" name="credentials[email]" placeholder="Email" />
@@ -36,8 +38,8 @@
         <input type="password" name="passwords[old]" placeholder="Current Password" />
         <input type="password" name="passwords[new]" placeholder="New Password" />
         <input type="submit" name="Change Password" />
-        <br/>
       </form>
+      <hr>
 
       <h2>Logout</h2>
       <form id="logout">
@@ -45,26 +47,32 @@
       </form>
     </div>
 
+
+<div class="col-md-8" id="main">
       <h1>Welcome to Tic Tac Toe!</h1>
       <div class="container">
         <div class="row">
-          <div class="col-4 col-md-4 box" id='0'>0
-            <span class="border-top-0"></span>
-            <span class="border-left-0"></span>
+          <div class="col-4 box board no-border-left no-border-top" id='0'>
+            <!-- <span class="border-top-0"></span>
+            <span class="border-left-0"></span> -->
           </div>
-          <div class="col-4 col-md-4 box" id='1'>1</div>
-          <div class="col-4 col-md-4 box" id='2'>2</div>
-          <div class="col-4 col-md-4 box" id='3'>3</div>
-          <div class="col-4 col-md-4 box" id='4'>4</div>
-          <div class="col-4 col-md-4 box" id='5'>5</div>
-          <div class="col-4 col-md-4 box" id='6'>6</div>
-          <div class="col-4 col-md-4 box" id='7'>7</div>
-          <div class="col-4 col-md-4 box" id='8'>8</div>
+          <div class="col-4 col-md-4 box" id='1'></div>
+          <div class="col-4 col-md-4 box" id='2'></div>
+          <div class="col-4 col-md-4 box" id='3'></div>
+          <div class="col-4 col-md-4 box" id='4'></div>
+          <div class="col-4 col-md-4 box" id='5'></div>
+          <div class="col-4 col-md-4 box" id='6'></div>
+          <div class="col-4 col-md-4 box" id='7'></div>
+          <div class="col-4 col-md-4 box" id='8'></div>
+        </div>
       </div>
-    </div>
+      <section class="messages">
+      </section>
       <form id="newGame">
         <input type="button" class="btn btn-primary btn-lg" value="New Game"></input>
       </form>
-
+</div>
+</div>
+</div>
     </body>
 </html>

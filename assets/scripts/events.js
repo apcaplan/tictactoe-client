@@ -45,9 +45,32 @@ const onLogout = event => {
     .catch(ui.onLogoutFailure)
 }
 
+const onNewGame = event => {
+  event.preventDefault()
+  const formData = '{}'
+  api.newgame(formData)
+    .then(ui.onNewGameSuccess)
+    .catch(ui.onNewGameFailure)
+}
+
+const onUpdateGame = event => {
+  event.preventDefault()
+  console.log('Game updating')
+  const data = getFormFields(event.target)
+  console.log(data)
+  console.log('onUpdateGame worked!')
+  api.updategame()
+    .then(ui.onUpdateGameSuccess)
+    .catch(ui.onUpdateGameFailure)
+}
+
+// store.game.id
+
 module.exports = {
   onSignUp,
   onSignIn,
   onChangePw,
-  onLogout
+  onLogout,
+  onNewGame,
+  onUpdateGame
 }

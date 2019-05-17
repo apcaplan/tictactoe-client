@@ -19,9 +19,19 @@ body {
 
 #admin-pannel {
   align-self: flex-start;
-  // display: flex;
+  display: flex;
   flex-direction: column;
+  justify-content: left;
   // justify-content: right;
+}
+
+#main {
+  padding-left: 10px;
+}
+
+#newGame {
+  align-items: center;
+  display: flex;
 }
 
 #reset {
@@ -41,6 +51,12 @@ body {
 .btn-primary{
   background-color: $purple;
     }
+
+.messages{
+  display: flex;
+  font-size: 2.5rem;
+  justify-content: center;
+}
 
 .row{
   margin: 20%;
