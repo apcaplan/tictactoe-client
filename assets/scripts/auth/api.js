@@ -1,7 +1,7 @@
 'use strict'
 
-const config = require('./config')
-const store = require('./store')
+const config = require('../config')
+const store = require('../store')
 
 // const store = require('./store')
 
@@ -47,46 +47,9 @@ const signout = () => {
   })
 }
 
-const newgame = () => {
-  console.log('from api newgame')
-  return $.ajax({
-    url: config.apiUrl + '/games',
-    // ${store.game.id}
-    method: 'POST',
-    game: {
-      id: 0,
-      cells: [],
-      over: false,
-      player_x: {
-        id: 1,
-        email: ''
-      },
-      player_o: null
-    },
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    }
-  })
-}
-
-const updateGame = (data) => {
-  console.log('data is', data)
-  return $.ajax({
-    url: config.apiUrl + '/games/' + store.gameID,
-    method: 'PATCH',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    },
-    data: data
-  })
-}
-
 module.exports = {
   signin,
   signup,
   changepw,
-  signout,
-  newgame,
-  // indexGame,
-  updateGame
+  signout
 }

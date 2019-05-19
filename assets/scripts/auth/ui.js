@@ -1,12 +1,12 @@
 // Registration
-const store = require('./store')
-const events = require('./events')
+const store = require('../store')
 
 const onSignUpSuccess = responseData => {
   console.log('success', responseData)
   $('#messages').text('Created password successfully!')
   $('#messages').removeClass()
   $('#messages').addClass('success')
+  $('#sign-up').hide()
 }
 
 const onSignUpFailure = responseData => {
@@ -21,8 +21,12 @@ const onSignInSuccess = responseData => {
   $('#messages').text('Logged in successfully!')
   $('#messages').removeClass()
   $('#messages').addClass('success')
-
   store.user = responseData.user
+  console.log('store' + store.user.token)
+  $('#sign-up').hide()
+  $('#sign-in').hide()
+  $('#change-password').show()
+  $('#logout').show()
 }
 
 const onSignInFailure = responseData => {
@@ -51,6 +55,9 @@ const onLogoutSuccess = () => {
   $('#messages').text('Changed password successfully!')
   $('#messages').removeClass()
   $('#messages').addClass('success')
+  $('#change-password').hide()
+  $('logout').hide()
+  $('#sign-in').show()
 }
 
 const onLogoutFailure = () => {
@@ -59,38 +66,6 @@ const onLogoutFailure = () => {
   $('#messages').removeClass()
   $('#messages').addClass('failure')
 }
-//
-// // Game
-const onNewGameSuccess = responseData => {
-  console.log('success')
-  console.log(responseData)
-  store.user.game = responseData.user.game
-  store.user.token = responseData.user
-  console.log('store is ' + store)
-  $('#messages').text('Created new game successfully!')
-  $('#messages').removeClass()
-  $('#messages').addClass('success')
-}
-
-const onNewGameFailure = responseData => {
-  console.log('failure', responseData)
-  $('#messages').text('Faied to create new game :( ')
-  $('#messages').removeClass()
-  $('#messages').addClass('failure')
-}
-
-const onIndexSuccess = response => {
-  console.log('success')
-  console.log(response)
-}
-
-const onIndexFailure = responseData => {
-  console.log('failure', responseData)
-  $('#messages').text('Faied to create new game :( ')
-  $('#messages').removeClass()
-  $('#messages').addClass('failure')
-}
-
 
 
 module.exports = {
@@ -101,9 +76,5 @@ module.exports = {
   onChangePwSuccess,
   onChangePwFailure,
   onLogoutSuccess,
-  onLogoutFailure,
-  onNewGameSuccess,
-  onNewGameFailure,
-  onIndexSuccess,
-  onIndexFailure
+  onLogoutFailure
 }
