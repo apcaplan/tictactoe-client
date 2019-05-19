@@ -6,11 +6,11 @@ const app = require('../app')
 // // Game
 const onNewGameSuccess = gameData => {
   console.log('success')
-  store.gameID = gameData.game.id
+  store.gameId = gameData.game.id
   store.cell = gameData.game.cell
   store.player = 'X'
   store.over = gameData.game.over
-  console.log(store.gameID)
+  console.log(store.gameId)
   console.log(store.cell)
   console.log(store.player)
   console.log(store.over)
@@ -22,14 +22,19 @@ const onNewGameFailure = responseData => {
 
 const onUpdateGameSuccess = responseData => {
   console.log('success')
-  store.games = responseData.games
-  store.cells = app.gameBoard
-  // store.player = ''
-  console.log(store.games)
-  console.log(store.cells)
 }
 
 const onUpdateGameFailure = responseData => {
+  console.log('failure', responseData)
+}
+
+const onIndexGameSuccess = gameData => {
+  console.log('success')
+  store.gamesPlayed = gameData.games.length
+  console.log('number of games played: ' + store.gamesPlayed)
+}
+
+const onIndexGameFailure = responseData => {
   console.log('failure', responseData)
 }
 
@@ -37,5 +42,7 @@ module.exports = {
   onNewGameSuccess,
   onNewGameFailure,
   onUpdateGameSuccess,
-  onUpdateGameFailure
+  onUpdateGameFailure,
+  onIndexGameSuccess,
+  onIndexGameFailure
 }

@@ -1,6 +1,7 @@
 'use strict'
 const api = require('./api')
 const ui = require('./ui')
+const app = require('../app')
 
 const onNewGame = event => {
   const formData = '{}'
@@ -12,13 +13,20 @@ const onNewGame = event => {
 const onUpdateGame = event => {
   event.preventDefault()
   console.log('Game updating')
-  // const data = getFormFields(event.target)
-  api.updategame()
+  api.updateGame(app.gameData)
     .then(ui.onUpdateGameSuccess)
     .catch(ui.onUpdateGameFailure)
 }
 
+const onIndexGame = event => {
+  console.log('InxedGame')
+  api.indexGame()
+    .then(ui.onIndexGameSuccess)
+    .catch(ui.onIndexGameFailure)
+}
+
 module.exports = {
   onNewGame,
-  onUpdateGame
+  onUpdateGame,
+  onIndexGame
 }

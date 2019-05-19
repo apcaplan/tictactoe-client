@@ -6,57 +6,53 @@
 // use require without a reference to ensure a file is bundled
 // require('./example')
 
-// Registration
+// Imports
 const authEvents = require('./auth/events')
 const gameEvents = require('./games/events')
+const fadeFunction = require('./auth/ui')
+const store = require('./store')
+const api = require('./games/api')
+const ui = require('./games/ui')
+const events = require('./games/events')
 
 $(() => {
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('#change-password').hide()
   $('#logout').hide()
+  $('.box').hide()
+  $('#newGame').hide()
+  $('#gamesPlayed').hide()
   $('#change-password').on('submit', authEvents.onChangePw)
   $('#logout').on('submit', authEvents.onLogOut)
 })
 
-// Game
-const store = require('./store')
-
+// Game presets
 let gameBoard = ['', '', '', '', '', '', '', '', '']
-
 let currentPlayer = 'X'
-
 let move = 0
 
 // New Game
 $('#newGame').click(function () {
+  $('.box').show()
   gameEvents.onNewGame()
-  $('.box').on('click')
-  gameBoard = ['', '', '', '', '', '', '', '', '']
   $('.box').empty()
+  $('.messages').empty()
+  $('.messages').show()
+  gameBoard = ['', '', '', '', '', '', '', '', '']
+  currentPlayer = 'X'
+  move = 0
   store.over = false
   store.turn = 0
-  move = 0
-  currentPlayer = 'X'
 })
 
-const updateGame = function (index, value, over) {
-  const data = {
-    game: {
-      cell: {
-        index: `${index}`,
-        value: `${value}`
-      },
-      over: `${over}`
-    }
-  }
-}
-
-const switchPlayer = function (player) {
-  if (player === 'X') {
-    currentPlayer = 'O'
-  } else {
-    currentPlayer = 'X'
+let gameData = {
+  game: {
+    cell: {
+      index: 0,
+      value: 'X'
+    },
+    over: false
   }
 }
 
@@ -65,61 +61,38 @@ $('.box').on('click', function () {
   const index = Number($(event.target).attr('id'))
   // If player clicks on gameboard after the game is over...
   if (store.over) {
+    $('.messages').show()
     $('.messages').html('Game over. Start a new game to continue playing!')
+    fadeFunction.fade()
   // if player clicks on an occupied square....
   } else if
   (gameBoard[index] !== '') {
+    $('.messages').show()
     $('.messages').html('This space is occupied. Please choose another!')
+    fadeFunction.fade()
   // if player makes a valid move...
   } else {
     gameBoard[index] = currentPlayer
-    updateGame(index, gameBoard[index], false)
-    //
-    // store.games.cells[this.id] = 'X'
-    // if (store.games.cells[this.id] === '') {
-    //   updateGame([this.id], 'X', )
-    //   gameEvents.store.games.cells[this.id] = 'X'
     $(event.target).text(currentPlayer)
-    console.log(index)
     console.log(gameBoard)
-    // $('gameBoard[index]').text('X')
     move++
     console.log(move)
-    // $('#index').unbind('click')
     checkForWin(currentPlayer)
     checkForTie()
+
+    // store move in gameData for export to API
+    gameData.index = index
+    gameData.value = currentPlayer
+    gameData.over = store.over
+    console.log(gameData)
+
+    // export gameData to API
+    api.updateGame(gameData)
+      .then(ui.onUpdateGameSuccess)
+      .catch(ui.onUpdateGameFailure)
     switchPlayer(currentPlayer)
   }
 })
-//  // player_O
-//  if (gameBoard[index] === '') {
-//  gameBoard[index] = 'X'
-//  updateGame(index, gameBoard[index], false)
-//  //
-//  // store.games.cells[this.id] = 'X'
-//  // if (store.games.cells[this.id] === '') {
-//  //   updateGame([this.id], 'X', )
-//  //   gameEvents.store.games.cells[this.id] = 'X'
-//  $(event.target).text('X')
-//  console.log(index)
-//  console.log(gameBoard)
-//  // $('gameBoard[index]').text('X')
-//  moves++
-//  $('#index').unbind('click')
-//  checkForWin('X')
-//  checkForTie()
-//  currentPlayer = 'O'
-//     if (gameBoard[this.id] === '') {
-//       $(event.target).text('O')
-//       console.log(this.id)
-//       gameBoard[this.id] = 'O'
-//       console.log(gameBoard)
-//       checkForWin('O')
-//       checkForTie()
-//       currentPlayer = 'X'
-//     }
-//   }
-// })
 
 // Check for Win
 const checkForWin = function (player) {
@@ -131,24 +104,31 @@ const checkForWin = function (player) {
   (gameBoard[2] === player && gameBoard[2] === gameBoard[5] && gameBoard[5] === gameBoard[8]) ||
   (gameBoard[0] === player && gameBoard[0] === gameBoard[4] && gameBoard[4] === gameBoard[8]) ||
   (gameBoard[2] === player && gameBoard[2] === gameBoard[4] && gameBoard[4] === gameBoard[6])) {
-    winText(player)
+    $('.messages').show()
+    $('.messages').html(player + ' wins!')
     store.over = true
   }
-}
-
-const winText = (player) => {
-  $('.messages').html(player + ' wins!')
-  // $('.box').unbind('click')
-  // $('.box').off('click')
 }
 
 // Check for Tie
 const checkForTie = function () {
   if (move === 9 && store.over === false) {
+    $('.messages').show()
     $('.messages').html('It\'s a tie')
     store.over = true
   }
 }
-// const isSpaceEmpty = element => { return element === '' }
-// const checkForTie = () => {
-//   if (location.some(isSpaceEmpty) === false) {
+
+// Switch Player
+const switchPlayer = function (player) {
+  if (player === 'X') {
+    currentPlayer = 'O'
+  } else {
+    currentPlayer = 'X'
+  }
+}
+
+$('#gamesPlayed').click(function () {
+  events.onIndexGame()
+  $('.messages').html('You\'ve played ' + store.gamesPlayed + ' games so far!')
+})

@@ -5,7 +5,7 @@ const store = require('../store')
 
 const newgame = formData => {
   return $.ajax({
-    url: config.apiUrl + '/games',
+    url: config.apiUrl + '/games/',
     method: 'POST',
     data: formData,
     headers: {
@@ -17,9 +17,17 @@ const newgame = formData => {
 const updateGame = data => {
   console.log('data is', data)
   return $.ajax({
-    url: config.apiUrl + '/games/' + store.game.id,
+    url: config.apiUrl + '/games/' + store.gameId,
     method: 'PATCH',
-    data: data,
+    data: {
+      game: {
+        cell: {
+          index: 0,
+          value: 'X'
+        },
+        over: false
+      }
+    },
     headers: {
       Authorization: 'Token token=' + store.user.token
     }
@@ -27,7 +35,18 @@ const updateGame = data => {
   })
 }
 
+const indexGame = data => {
+  return $.ajax({
+    url: config.apiUrl + '/games/',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   newgame,
-  updateGame
+  updateGame,
+  indexGame
 }
