@@ -7,46 +7,42 @@
 // require('./example')
 
 // Imports
-const authEvents = require('./auth/events')
-const gameEvents = require('./games/events')
-const fadeFunction = require('./auth/ui')
-const store = require('./store')
 const api = require('./games/api')
-const ui = require('./games/ui')
+const authEvents = require('./auth/events')
 const events = require('./games/events')
+const fadeFunction = require('./auth/ui')
+const gameEvents = require('./games/events')
+const store = require('./store')
+const ui = require('./games/ui')
 
 $(() => {
   $('#sign-up').hide()
   $('#sign-in').hide()
   $('#change-password').hide()
   $('#logout').hide()
-  $('.box').hide()
+  $('.gameBoard').hide()
   $('#newGame').hide()
   $('#gamesPlayed').hide()
-  // $('.container').hide()
-  // $('br[style$="display: none;"]')
-  // $('.form-group.row').css('display', 'none')
+  $('.wrapper').hide()
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('#change-password').on('submit', authEvents.onChangePw)
-  $('#logout').on('submit', authEvents.onLogOut)
+  $('#logout').on('click', authEvents.onLogOut)
 })
 
 // Register
 $('#register').click(function () {
-  $('.opening').hide()
+  $('.loginMessage').hide()
   $('#register').hide()
   $('#login').css('display', 'none')
-  $('.loginMessage').hide()
   $('#sign-up').show()
 })
 
 // Login
 $('#login').click(function () {
-  $('.opening').hide()
+  $('.loginMessage').hide()
   $('#register').hide()
   $('#login').show()
-  $('.loginMessage').hide()
   $('#sign-in').show()
 })
 
@@ -59,10 +55,10 @@ let move = 0
 $('#newGame').click(function () {
   // $('.container').show()
   $('.box').show()
-  gameEvents.onNewGame()
   $('.box').empty()
   $('.messages').empty()
   $('.messages').show()
+  gameEvents.onNewGame()
   gameBoard = ['', '', '', '', '', '', '', '', '']
   currentPlayer = 'X'
   move = 0
@@ -98,9 +94,7 @@ $('.box').on('click', function () {
   } else {
     gameBoard[index] = currentPlayer
     $(event.target).text(currentPlayer)
-    console.log(gameBoard)
     move++
-    console.log(move)
     checkForWin(currentPlayer)
     checkForTie()
 
@@ -108,7 +102,6 @@ $('.box').on('click', function () {
     gameData.index = index
     gameData.value = currentPlayer
     gameData.over = store.over
-    console.log(gameData)
 
     // export gameData to API
     api.updateGame(gameData)
@@ -153,6 +146,11 @@ const switchPlayer = function (player) {
 }
 
 $('#gamesPlayed').click(function () {
+  $('.messages').show()
   events.onIndexGame()
-  $('.messages').html('You\'ve played ' + store.gamesPlayed + ' games so far!')
+  if (store.gamesPlayed < 1 || store.gamesPlayed === undefined) {
+    $('.messages').html('You haven\'t played any games yet.')
+  } else {
+    $('.messages').html('You\'ve played ' + store.gamesPlayed + ' games so far!')
+  }
 })
