@@ -113,7 +113,6 @@ $('.box').on('click', function () {
     if (store.over === false) {
       $('.messages').text(currentPlayer + '\'s turn')
     }
-    ui2.fade()
   }
 })
 
@@ -127,6 +126,7 @@ const checkForWin = function (player) {
   (gameBoard[2] === player && gameBoard[2] === gameBoard[5] && gameBoard[5] === gameBoard[8]) ||
   (gameBoard[0] === player && gameBoard[0] === gameBoard[4] && gameBoard[4] === gameBoard[8]) ||
   (gameBoard[2] === player && gameBoard[2] === gameBoard[4] && gameBoard[4] === gameBoard[6])) {
+    $('.messages').empty()
     $('.messages').show()
     $('.messages').html(player + ' wins!')
     store.over = true
@@ -136,6 +136,7 @@ const checkForWin = function (player) {
 // Check for Tie
 const checkForTie = function () {
   if (move === 9 && store.over === false) {
+    $('.messages').empty()
     $('.messages').show()
     $('.messages').html('It\'s a tie')
     store.over = true
