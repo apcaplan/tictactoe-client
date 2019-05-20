@@ -19,7 +19,7 @@ $(() => {
   $('#sign-up').hide()
   $('#sign-in').hide()
   $('#change-password').hide()
-  $('#logout').hide()
+  // $('#logout').hide()
   $('.gameBoard').hide()
   $('#newGame').hide()
   $('#gamesPlayed').hide()
@@ -27,7 +27,7 @@ $(() => {
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('#change-password').on('submit', authEvents.onChangePw)
-  $('#logout').on('click', authEvents.onLogOut)
+  $('#logout').on('submit', authEvents.onLogOut)
 })
 
 // Register
@@ -66,7 +66,7 @@ $('#newGame').click(function () {
   store.turn = 0
 })
 
-let gameData = {
+const gameData = {
   game: {
     cell: {
       index: 0,
