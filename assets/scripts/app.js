@@ -28,14 +28,7 @@ $(() => {
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('#change-password').on('submit', authEvents.onChangePw)
   $('#logout').on('submit', authEvents.onLogOut)
-  })
-
-  // // Return to Registration
-  //   $('.goBack').click(function () {
-  //     $('.loginMessage').hide()
-  //     $('#register').hide()
-  //     $('#login').css('display', 'none')
-  //     $('#sign-up').show()
+})
 
 // Register
 $('#register').click(function () {

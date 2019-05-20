@@ -43,6 +43,7 @@ const onSignInSuccess = responseData => {
   $('#gamesPlayed').show()
   $('.wrapper').show()
   $('h1').hide()
+  $('.messages').text('Click on New Game button to begin!')
 }
 
 const onSignInFailure = responseData => {
