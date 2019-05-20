@@ -16,15 +16,38 @@ const ui = require('./games/ui')
 const events = require('./games/events')
 
 $(() => {
-  $('#sign-up').on('submit', authEvents.onSignUp)
-  $('#sign-in').on('submit', authEvents.onSignIn)
+  $('#sign-up').hide()
+  $('#sign-in').hide()
   $('#change-password').hide()
   $('#logout').hide()
   $('.box').hide()
   $('#newGame').hide()
   $('#gamesPlayed').hide()
+  // $('.container').hide()
+  // $('br[style$="display: none;"]')
+  // $('.form-group.row').css('display', 'none')
+  $('#sign-up').on('submit', authEvents.onSignUp)
+  $('#sign-in').on('submit', authEvents.onSignIn)
   $('#change-password').on('submit', authEvents.onChangePw)
   $('#logout').on('submit', authEvents.onLogOut)
+})
+
+// Register
+$('#register').click(function () {
+  $('.opening').hide()
+  $('#register').hide()
+  $('#login').css('display', 'none')
+  $('.loginMessage').hide()
+  $('#sign-up').show()
+})
+
+// Login
+$('#login').click(function () {
+  $('.opening').hide()
+  $('#register').hide()
+  $('#login').show()
+  $('.loginMessage').hide()
+  $('#sign-in').show()
 })
 
 // Game presets
@@ -34,6 +57,7 @@ let move = 0
 
 // New Game
 $('#newGame').click(function () {
+  // $('.container').show()
   $('.box').show()
   gameEvents.onNewGame()
   $('.box').empty()

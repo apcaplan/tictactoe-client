@@ -12,64 +12,101 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-
-      <!-- <div class="container" id="admin-pannel">
-        <div class="row">
-          <div class="col-md-4" > -->
       <h1>Welcome to Tic Tac Toe!</h1>
-
-        <form id="register">
-          <input type="button" class="btn btn-success btn-lg" value="Create a new account"></input>
-        </form>
+      <br>
+      <div class ="opening">
         <form id="login">
-          <input type="button" class="btn btn-info btn-lg" value="Login to continue playing"></input>
+          <input type="button" class="btn btn-success btn-lg" value="Sign in"></input>
         </form>
+        <div class="container form-group"
+        <form id="sign-in">
+          <div class="container form-group">
+            <h2>Sign in</h2>
+            <input class="form-control-lg" name="credentials[email]" name="Email" type="email" />
+            <input class="form-control-lg" name="Password" type="password"/>
+            <br>
+            <input class="form-control-lg" type="submit" value="Sign in"/>
+          </div>
+         </form>
+       </div>
+      <form id="register">
+          <input type="button" class="btn btn-primary btn-lg" value="Create a new account"></input>
+      </form>
+      <br>
+      <h5 class='loginMessage'> Log in to continue playing! <br> Make sure to register first, if you don't already have an account.</h5>
 
+      <div class="container form-group">
        <form id="sign-up">
         <h2>Register</h2>
-        <input type="email" name="credentials[email]" placeholder="Email" />
-        <input type="password" name="credentials[password]" placeholder="Password"/>
-        <input type ="password" name="credentials[password_confirmation]" placeholder="Confirm password" />
-        <input type="submit" name="Sign up" />
+        <input type="email" class="form-control-lg" name="credentials[email]" placeholder="Email" />
+        <input type="password" class="form-control-lg" name="credentials[password]" placeholder="Password"/>
+        <input type ="password" class="form-control-lg" name="credentials[password_confirmation]" placeholder="Confirm password" />
+        <br>
+        <br>
+        <input type="submit" class="btn lg btn-secondary" value="Sign up" />
       </form>
-      <br>
-
-      <form id="sign-in">
-        <h2>Sign in</h2>
-        <input type="email" name="credentials[email]" placeholder="Email" />
-        <input type="password" name="credentials[password]" placeholder="Password"/>
-        <input type="submit" name="Login" />
-      </form>
-      <br>
-
-      <form id="change-password">
-        <h2>Change Password</h2>
-        <input type="password" name="passwords[old]" placeholder="Current Password" />
-        <input type="password" name="passwords[new]" placeholder="New Password" />
-        <input type="submit" name="Change Password" />
-      </form>
-      <br>
-
-      <form id="logout">
-        <h2>Logout</h2>
-        <input type="submit" name="Logout" />
-      </form>
+      </div>
     </div>
+
+
+    <div class ="wrapper">
+       <div class="navbar navbar-fixed-top navbar-expand-lg bg-dark">
+         <button type="button" class="btn lg btn-primary" data-toggle="modal" data-target="#change-pw"> Change Password </button>
+         <div class="modal" id="change-pw" tabindex="-1" role="dialog" aria-labelledby="change-pw">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Change Password</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                    <span aria-hidden="true">x</span>
+                  </button>
+                </div>
+              <div class="modal-body">
+                <form id="change-password" class="container auth-forms">
+                  <div class="form-group">
+                    <input class="form-control" name="passwords[old]" placeholder="Current Password" type="password">
+                    <input class="form-control" name="passwords[new]" placeholder="New Password" type="password">
+                    <br>
+                    <input type="submit" name="Change Password" />
+                  </div>
+                </form>
+             </div>
+            </div>
+           </div>
+         </div>
+         <button type="button" class="btn lg btn-secondary" id="logout">Sign Out</button>
+      </div>
+    </div>
+
+        <!-- <button id="change-password" class="btn btn-secondary dropdown-toggle user-info" type="button" dat>Change Password</button>
+          <!-- <h2>Change Password</h2> -->
+          <!-- <button id="change-password-btn" type="button" class="btn btn-secondary" data-toggle="modal" data-target="#change-pw" style="display: inline;">Change Password</button> -->
+
+          <!-- <div class="dropdown-menu">
+            <!-- <form class="form-line change-password"> -->
+              <!-- <input type="password" name="passwords[old]" placeholder="Current Password" /> -->
+              <!-- <input type="password" name="passwords[new]" placeholder="New Password" /> -->
+              <!-- <input type="submit" name="Change Password" /> -->
+
+
+        <!-- <h2>Logout</h2>
+        <input type="submit" name="Logout" /> -->
+
 
 
 <!-- <div class="col-md-8" id="main"> -->
 
       <div class="container">
         <div class="row">
-          <div class="col-4 col-md-4 box" id='0'></div>
-          <div class="col-4 col-md-4 box" id='1'></div>
-          <div class="col-4 col-md-4 box" id='2'></div>
-          <div class="col-4 col-md-4 box" id='3'></div>
-          <div class="col-4 col-md-4 box" id='4'></div>
-          <div class="col-4 col-md-4 box" id='5'></div>
-          <div class="col-4 col-md-4 box" id='6'></div>
-          <div class="col-4 col-md-4 box" id='7'></div>
-          <div class="col-4 col-md-4 box" id='8'></div>
+          <div class="col-4 box square border-left no border-top" id='0'></div>
+          <div class="col-4 box square border-top" id='1'></div>
+          <div class="col-4 box square border-top no border-right" id='2'></div>
+          <div class="col-4 box square border-left" id='3'></div>
+          <div class="col-4 box center" id='4'></div>
+          <div class="col-4 box square border-right" id='5'></div>
+          <div class="col-4 box square border-bottom no border-left" id='6'></div>
+          <div class="col-4 box square border-bottom" id='7'></div>
+          <div class="col-4 box square border-bottom no border-right" id='8'></div>
         </div>
       </div>
       <section class="messages">
