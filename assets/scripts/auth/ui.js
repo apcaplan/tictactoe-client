@@ -42,6 +42,7 @@ const onSignInSuccess = responseData => {
   $('#newGame').show()
   $('#gamesPlayed').show()
   $('.wrapper').show()
+  $('h1').hide()
 }
 
 const onSignInFailure = responseData => {
@@ -54,7 +55,7 @@ const onSignInFailure = responseData => {
 
 const onChangePwSuccess = responseData => {
   console.log('success', responseData)
-  // $('.modal').hide()
+  $('.modal').hide()
   $('.messages').show()
   $('.messages').text('Changed password successfully!')
   $('#change-password').get(0).reset()
