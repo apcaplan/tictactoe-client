@@ -32,6 +32,11 @@ const onIndexGameSuccess = gameData => {
   console.log('success')
   store.gamesPlayed = gameData.games.length
   console.log('number of games played: ' + store.gamesPlayed)
+  if (store.gamesPlayed < 1 || store.gamesPlayed === undefined) {
+    $('.messages').html('You haven\'t played any games yet.')
+  } else {
+    $('.messages').html('You\'ve played ' + store.gamesPlayed + ' games so far!')
+  }
 }
 
 const onIndexGameFailure = responseData => {

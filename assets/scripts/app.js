@@ -14,6 +14,7 @@ const fadeFunction = require('./auth/ui')
 const gameEvents = require('./games/events')
 const store = require('./store')
 const ui = require('./games/ui')
+const ui2 = require('./auth/ui')
 
 $(() => {
   $('#sign-up').hide()
@@ -64,6 +65,7 @@ $('#newGame').click(function () {
   move = 0
   store.over = false
   store.turn = 0
+  $('.messages').text(currentPlayer + '\'s turn')
 })
 
 const gameData = {
@@ -108,6 +110,10 @@ $('.box').on('click', function () {
       .then(ui.onUpdateGameSuccess)
       .catch(ui.onUpdateGameFailure)
     switchPlayer(currentPlayer)
+    if (store.over === false) {
+      $('.messages').text(currentPlayer + '\'s turn')
+    }
+    ui2.fade()
   }
 })
 
@@ -145,12 +151,8 @@ const switchPlayer = function (player) {
   }
 }
 
+// Check number of games played
 $('#gamesPlayed').click(function () {
   $('.messages').show()
   events.onIndexGame()
-  if (store.gamesPlayed < 1 || store.gamesPlayed === undefined) {
-    $('.messages').html('You haven\'t played any games yet.')
-  } else {
-    $('.messages').html('You\'ve played ' + store.gamesPlayed + ' games so far!')
-  }
 })
