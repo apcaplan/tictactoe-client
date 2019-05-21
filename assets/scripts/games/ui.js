@@ -12,6 +12,10 @@ const onNewGameSuccess = gameData => {
 
 const onIndexGameSuccess = gameData => {
   store.gamesPlayed = gameData.games.length
+<<<<<<< HEAD
+=======
+  $('.messages').empty()
+>>>>>>> master
   if (store.gamesPlayed < 1 || store.gamesPlayed === undefined) {
     $('.messages').html('You haven\'t played any games yet.')
   } else {

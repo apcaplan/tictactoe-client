@@ -40,10 +40,15 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+<<<<<<< HEAD
 }
 
 #reset {
   padding: 30px;
+=======
+  // padding: 1.5rem;
+  // width: 400px;
+>>>>>>> master
 }
 
 #sign-in {
@@ -52,10 +57,13 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+<<<<<<< HEAD
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
+=======
+>>>>>>> master
 }
 
 .box {
@@ -74,6 +82,7 @@ body {
   font-size: 50%;
   font-weight: bold;
 
+<<<<<<< HEAD
 }
 
 .btn-primary-outline {
@@ -88,15 +97,43 @@ body {
   padding: 1rem;
   font-size: 40px;
 }
+=======
+.gameBoard {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  font-size: 40px;
+}
+
+// .games-p {
+//   margin-left: 30px;
+// }
+//
+// .log-o {
+//   margin-left: 30px;
+// }
+>>>>>>> master
 
 .messages {
   display: flex;
   font-size: 50%;
   justify-content: center;
   padding: 1rem;
+<<<<<<< HEAD
 }
 
 .navbar {
+=======
+}
+
+.navbar {
+  justify-content: space-around;
+}
+
+.navbar-inner {
+  align-items: center;
+>>>>>>> master
   align-content: center;
   align-items: center;
   background: transparent;
@@ -115,6 +152,13 @@ body {
   max-height: 70vh;
   max-width: 70vh;
   width: 60vw;
+}
+
+.s-in {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+
 }
 
 .wrapper {
