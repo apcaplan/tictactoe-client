@@ -3,11 +3,8 @@
 const config = require('../config')
 const store = require('../store')
 
-// const store = require('./store')
-
 // Registration
 const signup = formData => {
-  console.log('from api signup')
   return $.ajax({
     url: config.apiUrl + '/sign-up',
     method: 'POST',
@@ -16,7 +13,6 @@ const signup = formData => {
 }
 
 const signin = formData => {
-  console.log('from api signin')
   return $.ajax({
     url: config.apiUrl + '/sign-in',
     method: 'POST',
@@ -25,7 +21,6 @@ const signin = formData => {
 }
 
 const changepw = formData => {
-  console.log('from api changepw')
   return $.ajax({
     url: config.apiUrl + '/change-password',
     method: 'PATCH',
@@ -37,7 +32,6 @@ const changepw = formData => {
 }
 
 const signout = () => {
-  console.log('from api signout')
   return $.ajax({
     url: config.apiUrl + '/sign-out',
     method: 'DELETE',

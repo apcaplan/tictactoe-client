@@ -1,11 +1,5 @@
 'use strict'
 
-// use require with a reference to bundle the file and use it in this file
-// const example = require('./example')
-
-// use require without a reference to ensure a file is bundled
-// require('./example')
-
 // Imports
 const api = require('./games/api')
 const authEvents = require('./auth/events')
@@ -20,7 +14,6 @@ $(() => {
   $('#sign-up').hide()
   $('#sign-in').hide()
   $('#change-password').hide()
-  // $('#logout').hide()
   $('.gameBoard').hide()
   $('#newGame').hide()
   $('#gamesPlayed').hide()
@@ -34,17 +27,26 @@ $(() => {
 // Register
 $('#register').click(function () {
   $('.loginMessage').hide()
-  $('#register').hide()
   $('#login').hide()
+  $('#register').hide()
   $('#sign-up').show()
 })
 
 // Login
 $('#login').click(function () {
   $('.loginMessage').hide()
-  $('#register').show()
   $('#login').hide()
+  $('#register').hide()
   $('#sign-in').show()
+})
+
+// Back to register from Login
+$('.register2').click(function () {
+  $('.loginMessage').hide()
+  $('#login').hide()
+  $('#register').hide()
+  $('#sign-in').hide()
+  $('#sign-up').show()
 })
 
 // Game presets
@@ -54,7 +56,6 @@ let move = 0
 
 // New Game
 $('#newGame').click(function () {
-  // $('.container').show()
   $('.box').show()
   $('.box').empty()
   $('.messages').empty()
@@ -109,11 +110,12 @@ $('.box').on('click', function () {
     api.updateGame(gameData)
       .then(ui.onUpdateGameSuccess)
       .catch(ui.onUpdateGameFailure)
+
+    // switch player
     switchPlayer(currentPlayer)
-    if (store.over === false) {
-      $('.messages').text(currentPlayer + '\'s turn')
-    }
-    ui2.fade()
+    // if (store.over === false) {
+    //   $('.messages').text(currentPlayer + '\'s turn')
+    // }
   }
 })
 

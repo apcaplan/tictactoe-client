@@ -12,14 +12,12 @@ const onNewGame = event => {
 
 const onUpdateGame = event => {
   event.preventDefault()
-  console.log('Game updating')
   api.updateGame(app.gameData)
     .then(ui.onUpdateGameSuccess)
     .catch(ui.onUpdateGameFailure)
 }
 
 const onIndexGame = event => {
-  console.log('InxedGame')
   api.indexGame()
     .then(ui.onIndexGameSuccess)
     .catch(ui.onIndexGameFailure)

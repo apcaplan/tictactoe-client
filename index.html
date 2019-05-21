@@ -10,13 +10,16 @@
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+      <style>
+        @import url('https://fonts.googleapis.com/css?family=Neucha&display=swap');
+      </style>
     </head>
     <body>
       <h1>Welcome to Tic Tac Toe!</h1>
       <br>
       <div class ="opening">
         <form id="login">
-          <input type="button" class="btn btn-success btn-lg" value="Sign in"></input>
+          <input type="button" class="btn shadow-lg btn-success-transparent btn-lg shadow-lg" value="Sign in"></input>
         </form>
         <div class="container form-group">
         <form id="sign-in">
@@ -25,12 +28,13 @@
             <input class="form-control-lg" name="credentials[email]" placeholder="Email" type="email" />
             <input class="form-control-lg" name="credentials[password]" placeholder="Password" type="password"/>
             <br>
-            <input class="btn lg btn-success" type="submit" value="Sign in"/>
+            <input class="btn-lg btn-succes-transparent shadow-lg" type="submit" value="Sign in"/>
+            <input class="btn-lg btn-succes-transparent shadow-lg register2" type="submit" value="Create a new account"/>
           </div>
          </form>
        </div>
       <form id="register">
-          <input type="button" class="btn btn-primary btn-lg" value="Create a new account"></input>
+          <input type="button" class="btn btn-primary-transparent-transparent btn-lg shadow-lg" value="Create a new account"></input>
       </form>
       <br>
       <h5 class='loginMessage'> Log in to continue playing! <br> Make sure to register first, if you don't already have an account.</h5>
@@ -42,7 +46,7 @@
         <input type="password" class="form-control-lg" name="credentials[password]" placeholder="Password"/>
         <input type ="password" class="form-control-lg" name="credentials[password_confirmation]" placeholder="Confirm password" />
         <br>
-        <input class="btn btn-primary btn-lg" type="submit" value="Sign up" />
+        <input class="btn btn-primary-transparent-transparent btn-lg shadow-lg" type="submit" value="Sign up" />
       </form>
       </div>
     </div>
@@ -51,12 +55,12 @@
 
     <div class ="wrapper">
        <div class="navbar navbar-fixed-top navbar-expand-lg navbar-">
-         <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal" data-toggle="modal" data-target="#change-pw"> Change Password </button>
+         <button type="button" class="btn btn-primary-transparent btn-lg shadow-lg" data-dismiss="modal" data-toggle="modal" data-target="#change-pw"> Change Password </button>
          <div class="modal" id="change-pw" tabindex="-1" role="dialog" aria-labelledby="change-pw">
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title">Change Password</h5>
+                  <h5 class="modal-title cp">Change Password</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="close">
                     <span aria-hidden="true">x</span>
                   </button>
@@ -67,7 +71,7 @@
                     <input class="form-control" name="passwords[old]" placeholder="Current Password" type="password" />
                     <input class="form-control" name="passwords[new]" placeholder="New Password" type="password" />
                     <br>
-                    <input type="submit" data-dismiss="modal" name="Change Password"/>
+                    <input type="submit" class="btn btn-secondary btn-lg" name="Change Password"/>
                   </div>
                 </form>
              </div>
@@ -75,10 +79,10 @@
            </div>
          </div>
        <div id="gamesPlayed">
-         <input type="button" class="btn btn-secondary btn-lg games-p" value="Games Played" />
+         <input type="button" class="btn btn-primary-transparent btn-lg games-p shadow-lg" value="Games Played" />
        </div>
        <form id="logout">
-         <input type="submit" class="btn btn-secondary btn-lg log-o" value="Sign Out" />
+         <input type="submit" class="btn btn-primary-transparent btn-lg log-o shadow-lg" value="Sign Out" />
       </form>
     </div>
 
@@ -98,7 +102,7 @@
       <section class="messages">
       </section>
       <form id="newGame">
-        <input type="button" class="btn btn-primary btn-lg" value="New Game"></input>
+        <input type="button" class="btn btn-primary-transparent btn-lg shadow-lg" value="New Game"></input>
       </form>
 </div>
 </div>
