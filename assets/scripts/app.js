@@ -113,15 +113,9 @@ $('.box').on('click', function () {
 
     // switch player
     switchPlayer(currentPlayer)
-<<<<<<< HEAD
-    // if (store.over === false) {
-    //   $('.messages').text(currentPlayer + '\'s turn')
-    // }
-=======
     if (store.over === false) {
       $('.messages').text(currentPlayer + '\'s turn')
     }
->>>>>>> master
   }
 })
 
