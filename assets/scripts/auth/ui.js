@@ -56,9 +56,9 @@ const onSignInFailure = responseData => {
 
 const onChangePwSuccess = responseData => {
   console.log('success', responseData)
-  $('.modal').hide()
+  $('body').removeClass('modal-open')
   $('.messages').show()
-  $('.messages').text('Changed password successfully!')
+  $('.messages').text('Password changed.')
   $('#change-password').get(0).reset()
   fade()
 }
