@@ -1,5 +1,3 @@
-'use strict'
-
 // Imports
 const api = require('./games/api')
 const authEvents = require('./auth/events')
@@ -8,16 +6,16 @@ const fadeFunction = require('./auth/ui')
 const gameEvents = require('./games/events')
 const store = require('./store')
 const ui = require('./games/ui')
-const ui2 = require('./auth/ui')
 
 $(() => {
   $('#sign-up').hide()
   $('#sign-in').hide()
-  $('#change-password').hide()
+  // $('#change-password').hide()
   $('.gameBoard').hide()
   $('#newGame').hide()
-  $('#gamesPlayed').hide()
-  $('.wrapper').hide()
+  $('.navbar').hide()
+  // $('#gamesPlayed').hide()
+  // $('.wrapper').hide()
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('#change-password').on('submit', authEvents.onChangePw)
@@ -32,6 +30,14 @@ $('#register').click(function () {
   $('#sign-up').show()
 })
 
+// Return to main menu from Registration
+$('.return').click(function () {
+  $('#sign-up').hide()
+  $('.loginMessage').show()
+  $('#login').show()
+  $('#register').show()
+})
+
 // Login
 $('#login').click(function () {
   $('.loginMessage').hide()
@@ -42,9 +48,6 @@ $('#login').click(function () {
 
 // Back to register from Login
 $('.register2').click(function () {
-  $('.loginMessage').hide()
-  $('#login').hide()
-  $('#register').hide()
   $('#sign-in').hide()
   $('#sign-up').show()
 })

@@ -50,16 +50,9 @@ body {
 
 #sign-in {
   align-items: center;
-  // border: 3rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-
-  // position: absolute;
-  // top: 50%;
-  // left: 50%;
-  // transform: translate(-50%,-50%);
-
 }
 
 .box {
@@ -77,37 +70,29 @@ body {
   border-color: $black;
   font-size: 50%;
   font-weight: bold;
-
-
 }
 
 .btn-primary-outline {
-      background-color: transparent;
-      border-color: #ccc;
-    }
+  background-color: transparent;
+  border-color: #ccc;
+}
 
 .gameBoard {
   align-items: center;
   display: flex;
+  font-size: 30px;
   justify-content: center;
   padding: 1rem;
-  font-size: 40px;
 }
 
 .messages {
   display: flex;
-  font-size: 50%;
+  font-size: 30%;
   justify-content: center;
   padding: 1rem;
 }
 
 .navbar {
-  justify-content: space-around;
-// }
-
-// .navbar-inner {
-//   align-items: center;
-
   align-content: center;
   align-items: center;
   background: transparent;
@@ -119,6 +104,10 @@ body {
   align-items: center;
   display: flex;
   flex-direction: column;
+}
+
+.register2 {
+  margin-top: 1rem;
 }
 
 .row {
@@ -133,6 +122,13 @@ body {
   display: flex;
   flex-direction: column;
 
+}
+
+.turn {
+  display: flex;
+  font-size: 35%;
+  justify-content: center;
+  padding: 1rem;
 }
 
 .wrapper {

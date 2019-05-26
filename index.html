@@ -1,123 +1,118 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Tic Tac Toe</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags-->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<head>
+  <title>Tic Tac Toe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `script` tags-->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-      <style>
-        @import url('https://fonts.googleapis.com/css?family=Neucha&display=swap');
-      </style>
-    </head>
-    <body>
-      <h1>Welcome to Tic Tac Toe!</h1>
-      <br>
-      <div class ="opening">
-        <form id="login">
-          <input type="button" class="btn shadow-lg btn-success-transparent btn-lg shadow-lg" value="Sign in"></input>
-        </form>
-        <div class="container form-group">
-        <form id="sign-in">
-          <div class="container form-group s-in">
-            <h2>Sign in</h2>
-            <input class="form-control-lg" name="credentials[email]" placeholder="Email" type="email" />
-            <input class="form-control-lg" name="credentials[password]" placeholder="Password" type="password"/>
-            <br>
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
-            <input class="btn-lg btn-succes-transparent shadow-lg" type="submit" value="Sign in"/>
-            <input class="btn-lg btn-succes-transparent shadow-lg register2" type="submit" value="Create a new account"/>
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Neucha&display=swap');
+  </style>
+</head>
 
-            <!-- <input class="btn btn-lg btn-success" type="submit" value="Sign in"/>
-            <br> -->
-
-          </div>
-         </form>
-       </div>
-      <form id="register">
-          <input type="button" class="btn btn-primary-transparent-transparent btn-lg shadow-lg" value="Create a new account"></input>
+<body>
+  <h1>Welcome to Tic Tac Toe!</h1>
+  <br>
+  <div class="opening">
+    <form id="login">
+      <input type="button" class="btn shadow-lg btn-success-transparent btn-lg shadow-lg" value="Sign in"></input>
+    </form>
+    <div class="container form-group">
+      <form id="sign-in">
+        <div class="container form-group s-in">
+          <h2>Sign in</h2>
+          <input class="form-control-lg" name="credentials[email]" placeholder="Email" type="email" />
+          <input class="form-control-lg" name="credentials[password]" placeholder="Password" type="password" />
+          <br>
+          <input class="btn btn-primary-transparent-transparent btn-lg shadow-lg" type="submit" value="Sign in" />
+          <input class="btn btn-primary-transparent-transparent btn-lg shadow-lg register2" value="Create new account" />
+        </div>
       </form>
-      <br>
-      <h5 class='loginMessage'> Log in to continue playing! <br> Make sure to register first, if you don't already have an account.</h5>
+    </div>
+    <form id="register">
+      <input type="button" class="btn btn-primary-transparent-transparent btn-lg shadow-lg" value="Create a new account"></input>
+    </form>
+    <br>
+    <h5 class='loginMessage'> Log in to continue playing! <br> Make sure to register first, if you don't already have an account.</h5>
 
-      <div class="container form-group">
-       <form id="sign-up">
+    <div class="container form-group">
+      <form id="sign-up">
         <h2>Register</h2>
         <input type="email" class="form-control-lg" name="credentials[email]" placeholder="Email" />
-        <input type="password" class="form-control-lg" name="credentials[password]" placeholder="Password"/>
-        <input type ="password" class="form-control-lg" name="credentials[password_confirmation]" placeholder="Confirm password" />
+        <input type="password" class="form-control-lg" name="credentials[password]" placeholder="Password" />
+        <input type="password" class="form-control-lg" name="credentials[password_confirmation]" placeholder="Confirm password" />
         <br>
         <input class="btn btn-primary-transparent-transparent btn-lg shadow-lg" type="submit" value="Sign up" />
+        <input class="btn btn-primary-transparent-transparent btn-lg shadow-lg return" value="Return to main menu" />
       </form>
-      </div>
     </div>
-    <section class="error">
-    </section>
+  </div>
+  <section class="error">
+  </section>
 
-    <div class ="wrapper">
-       <div class="navbar navbar-fixed-top navbar-expand-lg navbar-">
-         <button type="button" class="btn btn-primary-transparent btn-lg shadow-lg" data-dismiss="modal" data-toggle="modal" data-target="#change-pw"> Change Password </button>
-         <div class="modal" id="change-pw" tabindex="-1" role="dialog" aria-labelledby="change-pw">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title cp">Change Password</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="close">
-                    <span aria-hidden="true">x</span>
-                  </button>
-                </div>
-              <div class="modal-body">
-                <form id="change-password" class="container auth-forms">
-                  <div class="form-group">
-                    <input class="form-control" name="passwords[old]" placeholder="Current Password" type="password" />
-                    <input class="form-control" name="passwords[new]" placeholder="New Password" type="password" />
-                    <br>
-                    <input type="submit" class="btn btn-secondary btn-lg" name="Change Password"/>
-                  </div>
-                </form>
-             </div>
+  <div class="wrapper">
+    <div class="navbar navbar-fixed-top navbar-expand-lg navbar-">
+      <button type="button" class="btn btn-primary-transparent btn-lg shadow-lg" data-dismiss="modal" data-toggle="modal" data-target="#change-pw"> Change Password </button>
+      <div class="modal" id="change-pw" tabindex="-1" role="dialog" aria-labelledby="change-pw">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title cp">Change Password</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                <span aria-hidden="true">x</span>
+              </button>
             </div>
-           </div>
-         </div>
-       <div id="gamesPlayed">
-
-         <input type="button" class="btn btn-primary-transparent btn-lg games-p shadow-lg" value="Games Played" />
-       </div>
-       <form id="logout">
-         <input type="submit" class="btn btn-primary-transparent btn-lg log-o shadow-lg" value="Sign Out" />
-
-         <!-- <input type="button" class="btn btn-primary btn-lg games-p" value="Games Played" />
-       </div>
-       <form id="logout">
-         <input type="submit" class="btn btn-primary btn-lg log-o" value="Sign Out" /> -->
-
-      </form>
-    </div>
-
-      <div class="container gameBoard">
-        <div class="row">
-          <div class="col-4 box square border-left no border-top" id='0'></div>
-          <div class="col-4 box square border-top" id='1'></div>
-          <div class="col-4 box square border-top no border-right" id='2'></div>
-          <div class="col-4 box square border-left" id='3'></div>
-          <div class="col-4 box center" id='4'></div>
-          <div class="col-4 box square border-right" id='5'></div>
-          <div class="col-4 box square border-bottom no border-left" id='6'></div>
-          <div class="col-4 box square border-bottom" id='7'></div>
-          <div class="col-4 box square border-bottom no border-right" id='8'></div>
+            <div class="modal-body">
+              <form id="change-password" class="container auth-forms">
+                <div class="form-group">
+                  <input class="form-control" name="passwords[old]" placeholder="Current Password" type="password" />
+                  <input class="form-control" name="passwords[new]" placeholder="New Password" type="password" />
+                  <br>
+                  <input type="submit" class="btn btn-secondary btn-lg" name="Change Password" />
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
-      <section class="messages">
-      </section>
-      <form id="newGame">
-        <input type="button" class="btn btn-primary-transparent btn-lg shadow-lg" value="New Game"></input>
+      <div id="gamesPlayed">
+        <input type="button" class="btn btn-primary-transparent btn-lg games-p shadow-lg" value="Games Played" />
+      </div>
+      <form id="logout">
+        <input type="submit" class="btn btn-primary-transparent btn-lg log-o shadow-lg" value="Sign Out" />
       </form>
-</div>
-</div>
-</div>
-    </body>
+    </div>
+
+    <div class="container gameBoard">
+      <div class="row">
+        <div class="col-4 box square border-left no border-top" id='0'></div>
+        <div class="col-4 box square border-top" id='1'></div>
+        <div class="col-4 box square border-top no border-right" id='2'></div>
+        <div class="col-4 box square border-left" id='3'></div>
+        <div class="col-4 box center" id='4'></div>
+        <div class="col-4 box square border-right" id='5'></div>
+        <div class="col-4 box square border-bottom no border-left" id='6'></div>
+        <div class="col-4 box square border-bottom" id='7'></div>
+        <div class="col-4 box square border-bottom no border-right" id='8'></div>
+      </div>
+    </div>
+      <section class="turn"></section>
+    <!-- </div>
+    <div> -->
+      <section class="messages"></section>
+    </div>
+  <form id="newGame">
+    <input type="button" class="btn btn-primary-transparent btn-lg shadow-lg" value="New Game"></input>
+  </form>
+  </div>
+  </div>
+  </div>
+</body>
+
 </html>
