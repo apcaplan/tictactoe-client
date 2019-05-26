@@ -10,12 +10,9 @@ const ui = require('./games/ui')
 $(() => {
   $('#sign-up').hide()
   $('#sign-in').hide()
-  // $('#change-password').hide()
   $('.gameBoard').hide()
   $('#newGame').hide()
   $('.navbar').hide()
-  // $('#gamesPlayed').hide()
-  // $('.wrapper').hide()
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('#change-password').on('submit', authEvents.onChangePw)
@@ -69,7 +66,7 @@ $('#newGame').click(function () {
   move = 0
   store.over = false
   store.turn = 0
-  $('.messages').text(currentPlayer + '\'s turn')
+  $('.turn').text(currentPlayer + '\'s turn')
 })
 
 const gameData = {
@@ -94,7 +91,7 @@ $('.box').on('click', function () {
   } else if
   (gameBoard[index] !== '') {
     $('.messages').show()
-    $('.messages').html('This space is occupied. Please choose another!')
+    $('.messages').html('This space is occupied. Please choose another!').fadeOut(2500)
     fadeFunction.fade()
   // if player makes a valid move...
   } else {
@@ -117,7 +114,7 @@ $('.box').on('click', function () {
     // switch player
     switchPlayer(currentPlayer)
     if (store.over === false) {
-      $('.messages').text(currentPlayer + '\'s turn')
+      $('.turn').text(currentPlayer + '\'s turn')
     }
   }
 })
@@ -132,6 +129,7 @@ const checkForWin = function (player) {
   (gameBoard[2] === player && gameBoard[2] === gameBoard[5] && gameBoard[5] === gameBoard[8]) ||
   (gameBoard[0] === player && gameBoard[0] === gameBoard[4] && gameBoard[4] === gameBoard[8]) ||
   (gameBoard[2] === player && gameBoard[2] === gameBoard[4] && gameBoard[4] === gameBoard[6])) {
+    $('.turn').hide()
     $('.messages').empty()
     $('.messages').show()
     $('.messages').html(player + ' wins!')
@@ -142,6 +140,7 @@ const checkForWin = function (player) {
 // Check for Tie
 const checkForTie = function () {
   if (move === 9 && store.over === false) {
+    $('.turn').hide()
     $('.messages').empty()
     $('.messages').show()
     $('.messages').html('It\'s a tie')

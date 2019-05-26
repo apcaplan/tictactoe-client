@@ -37,7 +37,7 @@ const onChangePwSuccess = responseData => {
   $('.cp').show()
   $('.cp').html('Password changed.').fadeOut(2500)
   $('#change-password').get(0).reset()
-  setTimeout(() => $('.cp').html('Change password again?').fadeIn(2500), 2500)
+  setTimeout(() => $('.cp').html('Change password again?').fadeIn(2500), 2600)
 }
 
 const onChangePwFailure = responseData => {
