@@ -34,7 +34,7 @@ const onChangePw = event => {
 
 const onLogout = event => {
   event.preventDefault()
-  api.logout()
+  api.signout()
     .then(ui.onLogoutSuccess)
     .catch(ui.onLogoutFailure)
 }
