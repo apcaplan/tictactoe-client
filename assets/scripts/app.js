@@ -56,7 +56,7 @@ let move = 0
 
 // New Game
 $('#newGame').click(function () {
-  $('.gameBoard').show()
+  $('.box').show()
   $('.box').empty()
   $('.messages').empty()
   $('.messages').show()
@@ -66,7 +66,6 @@ $('#newGame').click(function () {
   move = 0
   store.over = false
   store.turn = 0
-  $('.turn').show()
   $('.turn').text(currentPlayer + '\'s turn')
 })
 
@@ -86,7 +85,7 @@ $('.box').on('click', function () {
   // If player clicks on gameboard after the game is over...
   if (store.over) {
     $('.messages').show()
-    $('.messages').html('Game over. Start a new game to continue playing!').fadeOut(3500)
+    $('.messages').html('Game over. Start a new game to continue playing!')
     fadeFunction.fade()
   // if player clicks on an occupied square....
   } else if
