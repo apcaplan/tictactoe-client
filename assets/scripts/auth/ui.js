@@ -20,7 +20,7 @@ const onSignInSuccess = responseData => {
   $('.error').html('Logged in successfully!').fadeOut(2500)
   store.user = responseData.user
   $('.opening').hide()
-  $('.gameBoard').show()
+  $('.gameBoard').hide()
   $('.navbar').show()
   $('#newGame').show()
   $('h1').hide()

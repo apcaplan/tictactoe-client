@@ -29,6 +29,7 @@ $('#register').click(function () {
 
 // Return to main menu from Registration
 $('.return').click(function () {
+  $('#sign-up').get(0).reset()
   $('#sign-up').hide()
   $('.loginMessage').show()
   $('#login').show()
@@ -45,6 +46,7 @@ $('#login').click(function () {
 
 // Back to register from Login
 $('.register2').click(function () {
+  $('#sign-in').get(0).reset()
   $('#sign-in').hide()
   $('#sign-up').show()
 })
@@ -56,10 +58,12 @@ let move = 0
 
 // New Game
 $('#newGame').click(function () {
-  $('.box').show()
+  // $('.box').show()
   $('.box').empty()
+  $('.gameBoard').show()
   $('.messages').empty()
   $('.messages').show()
+  $('.turn').show()
   gameEvents.onNewGame()
   gameBoard = ['', '', '', '', '', '', '', '', '']
   currentPlayer = 'X'
