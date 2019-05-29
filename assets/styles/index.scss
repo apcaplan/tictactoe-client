@@ -40,12 +40,10 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-
 }
 
 #reset {
   padding: 30px;
-
 }
 
 #sign-in {
@@ -78,6 +76,11 @@ body {
 }
 
 .email {
+  margin: 1em;
+}
+
+.earlyError {
+  font-size: 60%;
   margin: 1em;
 }
 
