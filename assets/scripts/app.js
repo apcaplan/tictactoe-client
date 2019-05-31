@@ -21,6 +21,7 @@ $(() => {
 
 // Register
 $('#register').click(function () {
+  $('.earlyError').hide()
   $('.loginMessage').hide()
   $('#login').hide()
   $('#register').hide()
@@ -30,6 +31,7 @@ $('#register').click(function () {
 // Return to main menu from Registration
 $('.return').click(function () {
   $('#sign-up').get(0).reset()
+  $('.earlyError').hide()
   $('#sign-up').hide()
   $('.loginMessage').show()
   $('#login').show()
@@ -39,6 +41,7 @@ $('.return').click(function () {
 // Login
 $('#login').click(function () {
   $('.loginMessage').hide()
+  $('.earlyError').hide()
   $('#login').hide()
   $('#register').hide()
   $('#sign-in').show()
@@ -47,6 +50,7 @@ $('#login').click(function () {
 // Back to register from Login
 $('.register2').click(function () {
   $('#sign-in').get(0).reset()
+  $('.earlyError').hide()
   $('#sign-in').hide()
   $('#sign-up').show()
 })
