@@ -27,6 +27,10 @@ body {
   justify-content: left;
 }
 
+#login {
+  text-align: center;
+}
+
 #newGame {
   align-items: center;
   display: flex;
@@ -46,11 +50,10 @@ body {
   padding: 30px;
 }
 
-#sign-in {
+#sign-up {
   align-items: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
 .box {
@@ -73,10 +76,6 @@ body {
 .btn-primary-outline {
   background-color: transparent;
   border-color: #ccc;
-}
-
-.email {
-  margin: 1em;
 }
 
 .earlyError {
@@ -108,10 +107,14 @@ body {
   margin-top: 1em;
 }
 
-.opening {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
+// .opening {
+//   align-items: center;
+//   display: flex;
+//   flex-direction: column;
+// }
+
+.p {
+  margin: 1em;
 }
 
 .register2 {
@@ -125,11 +128,15 @@ body {
   width: 60vw;
 }
 
-.s-in {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
+.s {
+  margin: 1em;
+}
 
+.s-in {
+  // align-items: center;
+  // display: flex;
+  // flex-direction: column;
+  text-align: center;
 }
 
 .s-up {
@@ -151,14 +158,15 @@ body {
 h1 {
   font-size: 100%;
   font-weight: bold;
-  padding: 2rem;
+  padding: 1rem;
   text-align: center;
   margin-top: 1em;
 }
 
-h2 {
-  text-align: center;
-}
+// h2 {
+//   margin: 1em;
+//   text-align: center;
+// }
 
 h5 {
   font-size: 50%;
@@ -166,3 +174,10 @@ h5 {
   text-align: center;
   line-height: 3rem;
 }
+
+// @media (min-width: 890px) {
+//   .box {
+//     height: auto;
+//     min-height: 185px;
+//   }
+// }

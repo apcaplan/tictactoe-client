@@ -6,7 +6,7 @@ const onSignUpSuccess = responseData => {
   $('.earlyError').html('Created password successfully!').fadeOut(2500)
   $('#sign-up').hide()
   $('#sign-in').show()
-  $('#change-password').get(0).reset()
+  $('#sign-up').get(0).reset()
 }
 
 const onSignUpFailure = responseData => {
@@ -23,8 +23,10 @@ const onSignInSuccess = responseData => {
   $('.gameBoard').hide()
   $('.navbar').show()
   $('#newGame').show()
+  $('#login').hide()
   $('h1').hide()
   $('.messages').text('Click New Game button to begin!')
+  $('#sign-in').get(0).reset()
 }
 
 const onSignInFailure = responseData => {
@@ -51,6 +53,16 @@ const onLogoutSuccess = () => {
   $('.messages').show()
   $('.messages').html('Thanks for playing! Come back again soon :)').fadeOut(2500)
   setTimeout(() => $('.opening').show(), 3000)
+  $('h1').show()
+  $('#login').show()
+  $('#register').show()
+  $('.loginMessage').show()
+  $('.main-menu').show()
+  $('#sign-in').hide()
+  $('.navbar').hide()
+  $('#newGame').hide()
+  $('.gameBoard').hide()
+  $('.turn').hide()
 }
 
 const onLogoutFailure = () => {

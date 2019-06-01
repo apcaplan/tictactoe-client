@@ -20,35 +20,39 @@
   <h1>Welcome to Tic Tac Toe!</h1>
   <div class="opening">
     <p class="earlyError"></p>
-    <form id="login">
-      <input type="button" class="btn shadow-lg btn-success-transparent btn-lg shadow-lg" value="Sign in"></input>
-    </form>
-    <div class="container form-group">
+    <div class="main-menu">
+      <form id="login">
+        <input type="button" class="btn shadow-lg btn-success-transparent btn-lg shadow-lg" value="Sign in"></input>
+      </form>
+      <form id="register">
+        <input type="button" class="btn btn-primary-transparent-transparent btn-lg shadow-lg" value="Create a new account"></input>
+      </form>
+      <br>
+      <h5 class='loginMessage'> Log in to continue playing! <br> Make sure to register first, if you don't already have an account.</h5>
+    </div>
+
+    <div class="container form-group s-in">
       <form id="sign-in">
-        <div class="container form-group s-in">
+        <div class="container form-group">
           <h2>Sign in</h2>
-          <input class="form-control-lg email" name="credentials[email]" placeholder="Email" type="email" />
+          <input class="form-control-lg" name="credentials[email]" placeholder="Email" type="email" />
+          <p></p>
           <input class="form-control-lg" name="credentials[password]" placeholder="Password" type="password" />
-          <br>
+          <p></p>
           <input class="btn btn-primary-transparent-transparent btn-lg shadow-lg" type="submit" value="Sign in" />
+          <p></p>
           <input class="btn btn-primary-transparent-transparent btn-lg shadow-lg register2" value="Create new account" />
         </div>
       </form>
     </div>
-    <form id="register">
-      <input type="button" class="btn btn-primary-transparent-transparent btn-lg shadow-lg" value="Create a new account"></input>
-    </form>
-    <br>
-    <h5 class='loginMessage'> Log in to continue playing! <br> Make sure to register first, if you don't already have an account.</h5>
 
     <div class="container form-group s-up">
       <form id="sign-up">
         <h2>Register</h2>
         <input type="email" class="form-control-lg" name="credentials[email]" placeholder="Email" />
-        <input type="password" class="form-control-lg" name="credentials[password]" placeholder="Password" />
+        <input type="password" class="form-control-lg p" name="credentials[password]" placeholder="Password" />
         <input type="password" class="form-control-lg" name="credentials[password_confirmation]" placeholder="Confirm password" />
-        <br>
-        <input class="btn btn-primary-transparent-transparent btn-lg shadow-lg" type="submit" value="Sign up" />
+        <input class="btn btn-primary-transparent-transparent btn-lg shadow-lg s" type="submit" value="Sign up" />
         <input class="btn btn-primary-transparent-transparent btn-lg shadow-lg return" value="Return to main menu" />
       </form>
     </div>
@@ -102,9 +106,11 @@
         <div class="col-4 box square border-bottom no border-right" id='8'></div>
       </div>
     </div>
+    <div class="feedback">
       <section class="turn"></section>
       <section class="messages"></section>
     </div>
+  </div>
   <form id="newGame">
     <input type="button" class="btn btn-primary-transparent btn-lg shadow-lg" value="New Game"></input>
   </form>
