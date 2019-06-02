@@ -23,8 +23,6 @@ $(() => {
   $('#register').click(function () {
     $('.earlyError').hide()
     $('.loginMessage').hide()
-    // $('#login').hide()
-    // $('#register').hide()
     $('.main-menu').hide()
     $('#sign-up').show()
   })
@@ -38,7 +36,6 @@ $(() => {
     $('#login').show()
     $('.main-menu').show()
     $('#register').show()
-    // $('.main-menu').hide()
   })
 
   // Login
